@@ -26,6 +26,18 @@
         <!-- editor -->
         <link rel="stylesheet" type="text/css" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
         <!-- end datatable-->
+        <!-- styles from datatable.net-->
+        <style>
+            tfoot input {
+                width: 100%;
+                padding: 3px;
+                box-sizing: border-box;
+            }
+            /* Removed default search box*/
+            #table_filter{
+                display:none;
+            }
+        </style>
     </head>
     <body>
         <?php
@@ -41,6 +53,13 @@
                     ?>
                 </tr>
             </thead>
+            <tfoot>
+                <?php
+                    foreach( $table_col as $value ):
+                        echo "<th>$value</th>";
+                    endforeach;
+                    ?>
+            </tfoot>
         </table>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -133,13 +152,13 @@
                     ],
                     select: true,
                     buttons: [
-                        {
-                            text: 'Export All',
-                            action: function( e, dt, node, config ) {
-                                window.location = "download-report.php";
-                            }
-                        },
-                        {
+//                        {//Button for download all records in excel
+//                            text: 'Export All',
+//                            action: function( e, dt, node, config ) {
+//                                window.location = "download-report.php";
+//                            }
+//                        },
+                        {//Copy only selected
                             extend: 'copyHtml5',
                             text: 'Copy Selected Rows',
                             header: false,
@@ -149,7 +168,7 @@
                                 },
                                 orthogonal: 'selected_copy'
                             }
-                        },
+                        },//---------
                         'copy', 'pdf', 'csv', 'excel', 'print', 'selectAll', 'selectNone', 'colvis',
                         { extend: "editSingle", editor: editor },
                         { extend: "remove", editor: editor }
@@ -158,6 +177,7 @@
                         {
                             targets: [ 0, 5, 10 ], //starts from 0
                             visible: false,
+                            //Copy only selected
                             render: function( data, type, full, meta ) {
                                 if( type === 'selected_copy' )
                                 {
@@ -166,9 +186,31 @@
                                 }
                                 return data;
                             }
+                            //---------
                         }
                     ],
                     processing: true
+                } );
+                // Setup - add a text input to each footer cell
+                $('#table tfoot th').each( function () {
+                    var title = $(this).text();
+                    $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                } );
+
+                // DataTable
+                var table = $('#table').DataTable();
+
+                // Apply the search
+                table.columns().every( function () {
+                    var that = this;
+
+                    $( 'input', this.footer() ).on( 'keyup change', function () {
+                        if ( that.search() !== this.value ) {
+                            that
+                                .search( this.value )
+                                .draw();
+                        }
+                    } );
                 } );
             } );
         </script>
