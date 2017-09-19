@@ -15,10 +15,12 @@
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- datatable-->
-        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">-->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+           <!-- fixed header css-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
         <!-- buttons -->
-        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css">-->
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">-->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap.min.css">
         <!-- select row -->
         <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.2/css/select.dataTables.min.css">-->
@@ -63,21 +65,22 @@
         </table>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-        <script src="//cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
         <!-- export buttons -->
-        <script src="//cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
     <!--    <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.flash.min.js"></script>-->
-        <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.bootstrap.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.4.2/js/buttons.bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
         <!--<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>-->
         <!--<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>-->
-        <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
-        <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
-        <script src="//cdn.datatables.net/select/1.2.2/js/dataTables.select.min.js"></script>
-        <script src="dataTables.editor.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
         <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js"></script>
         <!-- end of export buttons -->
+        <script src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+        <script src="dataTables.editor.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
         <script>
             $( document ).ready( function() {
                 columns = [ 'id', 'first_name', 'last_name', 'position', 'email', 'office', 'start_date', 'age', 'salary', 'seq', 'extn' ];
@@ -160,18 +163,51 @@
 //                        },
                         {//Copy only selected
                             extend: 'copyHtml5',
-                            text: 'Copy Selected Rows',
+                            text: '<u>C</u>opy Selected Rows',
                             header: false,
                             exportOptions: {
                                 modifier: {
                                     selected: true
                                 },
                                 orthogonal: 'selected_copy'
+                            },
+                            key: {
+                                key: 'c',
+                                ctrlkey: true
                             }
                         },//---------
-                        'copy', 'pdf', 'csv', 'excel', 'print', 'selectAll', 'selectNone', 'colvis',
-                        { extend: "editSingle", editor: editor },
-                        { extend: "remove", editor: editor }
+                        {
+                            extend: 'copy',
+                            text: 'Copy All',
+                        },
+                        'pdf', 'csv', 'excel', 'print', 
+                        {
+                            extend: 'selectAll',
+                            text: 'select <u>A</u>ll',
+                            key: {
+                                key: 'a',
+                                ctrlkey: true
+                            }
+                        },     
+                        'selectNone', 'colvis',
+                        {
+                            extend: "editSingle",
+                            text: 'Edit <u>Z</u>',
+                            key: {
+                                key: 'z',
+                                ctrlkey: true
+                            },
+                            editor: editor
+                        },
+                        {
+                            extend: "remove",
+                            text: 'Delete <u>X</u>',
+                            key: {
+                                key: 'x',
+                                ctrlkey: true
+                            },
+                            editor: editor
+                        }
                     ],
                     columnDefs: [
                         {
@@ -189,7 +225,12 @@
                             //---------
                         }
                     ],
-                    processing: true
+                    processing: true,//server - side enabled
+                    fixedHeader: true//stick or fixed header
+                } );
+                //A new constructor for fixed header
+                new $.fn.dataTable.FixedHeader( table, {
+                    // options
                 } );
                 // Setup - add a text input to each footer cell
                 $('#table tfoot th').each( function () {
