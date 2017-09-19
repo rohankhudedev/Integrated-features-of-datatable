@@ -2,15 +2,15 @@
 
 In this repository, You will get integrated all basic feature of datatable and editor-datatable, like:
 
-* Buttons : Copy, CSV, Excel, Print, Select all, Deselect all
-* Editor Buttons : Edit(single edit), Delete
+* Export Button Collection : Copy, CSV, Excel, Print, PDF
+* Editor Buttons : New, Edit(single edit), Delete
+* Select Buttons : Copy selected rows, Select all, Deselect all
+* Column visibility button
 * Server side processing
 * Pagination
-* Multi Coloumn Filtering
-* Responsive Table
-* Pagination
-* Export all
-* Fixed Header
+* Multi column filtering
+* Responsive table
+* Fixed header
 * Shortcut Key activation
 
 ### Shortcut keys

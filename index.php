@@ -177,11 +177,6 @@
                             }
                         },//---------
                         {
-                            extend: 'copy',
-                            text: 'Copy All',
-                        },
-                        'pdf', 'csv', 'excel', 'print', 
-                        {
                             extend: 'selectAll',
                             text: 'select <u>A</u>ll',
                             key: {
@@ -190,6 +185,7 @@
                             }
                         },     
                         'selectNone', 'colvis',
+                        { extend: "create", editor: editor },
                         {
                             extend: "editSingle",
                             text: 'Edit <u>Z</u>',
@@ -207,6 +203,17 @@
                                 ctrlkey: true
                             },
                             editor: editor
+                        },
+                        {
+                            extend: 'collection',
+                            text: 'Export',
+                            buttons: [
+                                'copy',
+                                'excel',
+                                'csv',
+                                'pdf',
+                                'print'
+                            ]
                         }
                     ],
                     columnDefs: [
