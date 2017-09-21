@@ -36,7 +36,7 @@ Other shortcuts you can define, by using above sample snippets.
 
 6. Rename `php/` to `plugin/` (for our convenience)
 
-7. For configuration of database settings goto php/->config.php. Your configuration will look like this :
+7. For configuration of database settings open `php/config.php`. Your configuration will look like this :
 
 ```php
 $sql_details = array(
@@ -53,8 +53,8 @@ $sql_details = array(
 
 8. Done. Enjoy!!!
 
-** Output **
+### Output
 
-![Output of Integrated Features of Editor Datatable](https://imgur.com/a/DaHT8)
+![Output of Integrated Features of Editor Datatable](https://i.imgur.com/QiKweL9.png)
 
 To build this, i have used datable jQuery Javascript library. source : [editor.datatables](https://editor.datatables.net/)
