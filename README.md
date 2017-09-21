@@ -22,6 +22,8 @@
 
 Other shortcuts you can define, by using above sample snippets.
 
+**NOTE:** For this project to get execute, you first need purchased editor datatable from  [https://editor.datatables.net/purchase/](https://editor.datatables.net/purchase/)
+
 # Installation
 
 1. Download PHP package of Editor from [editor.datatables](https://editor.datatables.net/)
@@ -53,8 +55,8 @@ $sql_details = array(
 
 8. Done. Enjoy!!!
 
-** Output **
+### Output
 
-![Output of Integrated Features of Editor Datatable](https://imgur.com/a/DaHT8)
+![Output of Integrated Features of Editor Datatable](https://i.imgur.com/QiKweL9.png)
 
 To build this, i have used datable jQuery Javascript library. source : [editor.datatables](https://editor.datatables.net/)
