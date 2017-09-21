@@ -22,21 +22,21 @@
 
 Other shortcuts you can define, by using above sample snippets.
 
-**NOTE:** For this project to get execute, you first need purchased editor datatable from  [https://editor.datatables.net/purchase/](https://editor.datatables.net/purchase/)
-
 # Installation
 
-1. Download PHP package of Editor from [editor.datatables](https://editor.datatables.net/)
+1. Please see http://editor.datatables.net for details on how to purchase an Editor license or download a trial version of Editor from https://editor.datatables.net/download
 
 2. Extract the downloaded file `.zip` to your `htdocs/` or `www/`
 
-3. We need folder `php/` fully and `mysql.sql` file from `examples/sql/` from extracted package.
+3. We need folder `php/` fully, `examples/sql/mysql.sql` file and `js/dataTables.editor.min.js` file from from extracted package.
 
-4. Create the database say `datatable` and import `mysql.sql`
+4. Create the database say name as `datatable` and import `mysql.sql`
 
-5. Rename `php/` to `plugin/` (for our convenience)
+5. Paste `dataTables.editor.min.js` in root of your project directory. For all other CSS and JS files in this repository is imported using CDN.
 
-6. For configuration of database settings goto php/->config.php. Your configuration will look like this :
+6. Rename `php/` to `plugin/` (for our convenience)
+
+7. For configuration of database settings goto php/->config.php. Your configuration will look like this :
 
 ```php
 $sql_details = array(
@@ -51,12 +51,10 @@ $sql_details = array(
 );
 ```
 
-7. Download required `dataTables.editor.min.js` file from [editor.datatables](https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js) and save it in root of your project directory. All other CSS and JS files in this repository is imported using CDN. But `dataTables.editor.min.js` file must be included locally.
-
 8. Done. Enjoy!!!
 
-### Output
+** Output **
 
-![Output of Integrated Features of Editor Datatable](https://i.imgur.com/QiKweL9.png)
+![Output of Integrated Features of Editor Datatable](https://imgur.com/a/DaHT8)
 
 To build this, i have used datable jQuery Javascript library. source : [editor.datatables](https://editor.datatables.net/)
