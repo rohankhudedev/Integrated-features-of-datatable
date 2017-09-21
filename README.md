@@ -1,6 +1,6 @@
 # Get Started
 
-> In this repository, You will get all basic features integrated of datatable and editor-datatable, like:
+> In this repository, You will get all basic required features integrated of datatable and editor-datatable, like:
 
 * Export Button Collection : Copy, CSV, Excel, Print, PDF
 * Editor Buttons : New, Edit(single edit), Delete
