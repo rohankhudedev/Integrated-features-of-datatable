@@ -1,6 +1,6 @@
 # Get Started
 
-> In this repository, You will get all basic required features integrated of datatable and editor-datatable, like:
+> In this repository, You will get all basic required features integrated of Editor Datatable, like:
 
 * Export Button Collection : Copy, CSV, Excel, Print, PDF
 * Editor Buttons : New, Edit(single edit), Delete
@@ -55,6 +55,6 @@ $sql_details = array(
 
 ** Output **
 
-![Output of Integrated Features of Datatable](https://www.dropbox.com/s/fmu9y043lpqauw0/Integrated-features-of-datatable.png?dl=0)
+![Output of Integrated Features of Editor Datatable](https://imgur.com/a/DaHT8)
 
-To build this, i have used datable jQuery Javascript library. *[datatable.net](https://datatables.net/) and *[editor.datatables](https://editor.datatables.net/)
+To build this, i have used datable jQuery Javascript library. source : [editor.datatables](https://editor.datatables.net/)
