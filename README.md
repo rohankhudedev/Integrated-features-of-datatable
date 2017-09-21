@@ -49,6 +49,9 @@ $sql_details = array(
 );
 ```
 
-7. Done.
+7. Download required `dataTables.editor.min.js` file from [editor.datatables](https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js). All other CSS and JS files in this repository is imported using CDN. But `dataTables.editor.min.js` file must be included locally.
 
-To build this, i have used datable jQuery Javascript library. *[datatable.net](https://datatables.net/) and *[editor.datatables](https://editor.datatables.net/).
+8. Done. Enjoy!!!
+
+
+To build this, i have used datable jQuery Javascript library. *[datatable.net](https://datatables.net/) and *[editor.datatables](https://editor.datatables.net/)
