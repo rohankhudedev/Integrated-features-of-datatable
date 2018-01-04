@@ -2,7 +2,7 @@
 /**
  * @author  Rohan Khude
  * @github  rohankhudedev
- * 
+ * @link https://rohankhudedev.github.io/portfolio/ portfolio
  */
 ?>
 <!DOCTYPE html>
@@ -38,6 +38,10 @@
             /* Removed default search box*/
             #table_filter{
                 display:none;
+            }
+            /* By using css - each column filter moved to table header*/
+            tfoot {
+                display: table-header-group;
             }
         </style>
     </head>
@@ -206,7 +210,7 @@
                         },
                         {
                             extend: 'collection',
-                            text: 'Export',
+                            text: 'Export All',
                             buttons: [
                                 'copy',
                                 'excel',

@@ -12,6 +12,7 @@
 * Responsive table
 * Fixed header
 * Shortcut Key activation
+* Column filter moved from table footer(default place) to table header
 
 ### Shortcut keys
 
