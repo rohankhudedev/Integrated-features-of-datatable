@@ -56,6 +56,6 @@ $sql_details = array(
 
 ### Output
 
-![Output of Integrated Features of Editor Datatable](https://i.imgur.com/QiKweL9.png)
+![Output of Integrated Features of Editor Datatable](https://imgur.com/a/1TBnT)
 
 To build this, i have used datable jQuery Javascript library. source : [editor.datatables](https://editor.datatables.net/)
